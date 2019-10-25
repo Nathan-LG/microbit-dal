@@ -161,7 +161,7 @@ MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
  * compass.heading();
  * @endcode
  */
-int MicroBitCompass::heading()
+float MicroBitCompass::heading()
 {
     if(status & MICROBIT_COMPASS_STATUS_CALIBRATING)
         return MICROBIT_CALIBRATION_IN_PROGRESS;
@@ -451,7 +451,7 @@ int MicroBitCompass::getZ()
 /**
  * Calculates a tilt compensated bearing of the device, using the accelerometer.
  */
-int MicroBitCompass::tiltCompensatedBearing()
+float MicroBitCompass::tiltCompensatedBearing()
 {
     // Precompute the tilt compensation parameters to improve readability.
     float phi = accelerometer->getRollRadians();
@@ -479,13 +479,13 @@ int MicroBitCompass::tiltCompensatedBearing()
     if (bearing < 0)
         bearing += 360.0f;
 
-    return (int) (bearing);
+    return (bearing);
 }
 
 /**
  * Calculates a non-tilt compensated bearing of the device.
  */
-int MicroBitCompass::basicBearing()
+float MicroBitCompass::basicBearing()
 {
     // Convert to floating point to reduce rounding errors
     Sample3D cs = this->getSample(SIMPLE_CARTESIAN);
@@ -497,7 +497,7 @@ int MicroBitCompass::basicBearing()
     if (bearing < 0)
         bearing += 360.0;
 
-    return (int)bearing;
+    return bearing;
 }
 
 /**

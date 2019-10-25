@@ -123,7 +123,7 @@ class MicroBitCompass : public MicroBitComponent
          * compass.heading();
          * @endcode
          */
-        int heading();
+        float heading();
 
         /**
          * Determines the overall magnetic field strength based on the latest update from the magnetometer.
@@ -316,12 +316,12 @@ class MicroBitCompass : public MicroBitComponent
         /**
          * Calculates a tilt compensated bearing of the device, using the accelerometer.
          */
-        int tiltCompensatedBearing();
+        float tiltCompensatedBearing();
 
         /**
          * Calculates a non-tilt compensated bearing of the device.
          */
-        int basicBearing();
+        float basicBearing();
 };
 
 //
