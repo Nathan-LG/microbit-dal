@@ -97,14 +97,14 @@ set(YOTTA_AUTO_MICROBIT-DAL_S_FILES
     "asm/CortexContextSwitch.s"
 )
 
-add_library(microbit-dal
+add_library(microbit-dal-eseo
     ${YOTTA_AUTO_MICROBIT-DAL_CPP_FILES}
     ${YOTTA_AUTO_MICROBIT-DAL_S_FILES}
 )
 
-yotta_postprocess_target(LIBRARY microbit-dal)
+yotta_postprocess_target(LIBRARY microbit-dal-eseo)
 
-target_link_libraries(microbit-dal
+target_link_libraries(microbit-dal-eseo
     mbed-classic
     ble
     ble-nrf51822
